@@ -1,5 +1,3 @@
-import React, { memo } from "react";
-
 const GenericCard = ({ logo, title, text }) => {
   return (
     <div className="bg-slate-700 flex flex-row rounded-xl shadow-lg mb-6 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
@@ -15,4 +13,4 @@ const GenericCard = ({ logo, title, text }) => {
   );
 };
 
-export default memo(GenericCard);
+export default GenericCard;

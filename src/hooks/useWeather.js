@@ -1,12 +1,12 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const initialState = {
-  cityName: "",
-  country: "",
-  main: "",
-  description: "",
-  icon: "01d",
+  cityName: '',
+  country: '',
+  main: '',
+  description: '',
+  icon: '01d',
   humidity: null,
   temperature: { main: null, feels_like: null, min: null, max: null },
   wind: { speed: null },
@@ -28,7 +28,9 @@ const useWeather = ({ cityName, onError }) => {
     setLoading(true);
 
     axios
-      .get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7b417018ffd79187903328447561cb7c`)
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7b417018ffd79187903328447561cb7c`,
+      )
       .then((res) => {
         let {
           name: cityName,
@@ -65,7 +67,7 @@ const useWeather = ({ cityName, onError }) => {
         onError();
         setLoading(false);
       });
-  }, [city]);
+  }, [city, onError]);
 
   return [weather, loading, error, setCity];
 };

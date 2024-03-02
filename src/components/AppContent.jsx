@@ -1,5 +1,4 @@
-import React from "react";
-import WeatherView from "./WeatherView";
+import WeatherView from './WeatherView';
 
 const AppContent = () => {
   return (
