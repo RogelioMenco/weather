@@ -1,19 +1,23 @@
+import moment from 'moment';
+
 const AppFooter = () => {
+  const year = moment().year();
+
   return (
     <footer>
       <div className="p-3 bg-slate-900 bottom-0 mx-auto text-slate-600">
         <center>
           <b>
-            Weather App | {''}
+            Weather Status | {''}
             <a
               href="https://github.com/RogelioMenco/weather"
               target="_blank"
               rel="noreferrer"
             >
-              Github Repository | {''}
+              Github
             </a>
           </b>
-          <p>2024. Rogelio Menco</p>
+          <p>{year}. Rogelio Menco</p>
         </center>
       </div>
     </footer>

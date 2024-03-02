@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { toast } from 'react-toastify';
 import useWeather from '../hooks/useWeather';
 import GenericCard from './GenericCard';
@@ -8,9 +8,14 @@ import WeatherCard from './WeatherCard';
 
 const WeatherView = () => {
   const cityName = useRef('');
+
+  const onWeatherError = useCallback(() => {
+    toast.error('The city you entered was not found!');
+  }, []);
+
   const [weather, , , setCity] = useWeather({
     cityName: 'Miami',
-    onError: () => toast.error('The city you entered was not found!'),
+    onError: onWeatherError,
   });
 
   const handleSearch = (e) => {
@@ -32,17 +37,17 @@ const WeatherView = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-3">
         <GenericCard
-          logo="https://rogeliomenco.github.io/assets_repo/weather/wind_2.svg"
+          logo="./assets/wind_2.svg"
           title="Wind Speed"
           text={weather.wind.speed + 'm/s'}
         />
         <GenericCard
-          logo="https://rogeliomenco.github.io/assets_repo/weather/humidity_2.svg"
+          logo="./assets/humidity_2.svg"
           title="Humidity"
           text={weather.humidity + '%'}
         />
         <GenericCard
-          logo="https://rogeliomenco.github.io/assets_repo/weather/cloudiness.svg"
+          logo="./assets/cloudiness.svg"
           title="Cloudiness"
           text={weather.cloudiness + '%'}
         />

@@ -46,7 +46,7 @@ const WeatherCard = ({ weather }) => {
       <div className="flex-auto flex flex-col justify-around items-center md:flex-row-reverse">
         <img
           className="w-40 h-40 md:w-56 md:h-56"
-          src={`https://rogeliomenco.github.io/assets_repo/weather/${weather.icon}.svg`}
+          src={`./assets/${weather.icon}.svg`}
           alt="Weather"
         ></img>
         <div className="flex flex-col items-center md:items-end">

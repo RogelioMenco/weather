@@ -67,7 +67,8 @@ const useWeather = ({ cityName, onError }) => {
         onError();
         setLoading(false);
       });
-  }, [city, onError]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [city]);
 
   return [weather, loading, error, setCity];
 };
